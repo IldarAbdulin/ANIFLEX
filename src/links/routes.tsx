@@ -1,6 +1,6 @@
 import React from 'react';
 import { links } from './links';
-import { HomePage } from '../pages';
+import { HomePage, MainPage } from '../pages';
 
 type IChildren = {
   path: string;
@@ -17,6 +17,10 @@ export const publicRoutes: IPublicRoutes[] = [
       {
         path: links.home,
         element: <HomePage />,
+      },
+      {
+        path: links.main,
+        element: <MainPage />,
       },
     ],
   },
