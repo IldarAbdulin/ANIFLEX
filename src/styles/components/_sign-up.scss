@@ -54,15 +54,20 @@
     }
     &__form {
       &-google {
-        width: 220px;
-        margin: 10px 0;
         display: flex;
         align-items: center;
-        gap: 10px;
-        border-radius: 10px;
         cursor: pointer;
         border: 1px solid #676767;
+        width: 270px;
+        border-radius: 10px;
+        margin: 10px 0;
+        gap: 10px;
         padding: 3px 0px;
+        button {
+          width: 220px;
+          color: #353535;
+          font-size: 20px;
+        }
       }
       input {
         width: 100%;

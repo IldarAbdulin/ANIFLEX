@@ -1,17 +1,16 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
 import React from 'react';
+import Cookies from 'js-cookie';
+import { Navigate } from 'react-router-dom';
+import { Manga } from '../components/anime-manga/Manga';
 
-type Props = {};
-
-export const MainPage: React.FC = (props: Props) => {
-  const { isAuth, email } = useAuth();
-  return isAuth ? (
-    <div>
-      <h1>Welocome</h1>
-      <p>{email}</p>
-    </div>
-  ) : (
-    <Navigate to={`/`} />
+export const MainPage: React.FC = () => {
+  return (
+    <>
+      {Cookies.get('token') && Cookies.get('user') ? (
+        <Manga />
+      ) : (
+        <Navigate to={`/`} />
+      )}
+    </>
   );
 };

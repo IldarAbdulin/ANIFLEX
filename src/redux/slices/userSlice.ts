@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 type IInitialState = {
+  isAuthenticated: boolean;
   email: null | string;
   token: null | string;
   id: null | string;
 };
 
 const initialState: IInitialState = {
+  isAuthenticated: false,
   email: null,
   token: null,
   id: null,
@@ -20,11 +23,15 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.token = action.payload.token;
       state.id = action.payload.id;
+      state.isAuthenticated = true;
     },
     removeUser(state) {
       state.email = null;
       state.id = null;
       state.token = null;
+      state.isAuthenticated = false;
+      Cookies.remove('token');
+      Cookies.remove('user');
     },
   },
 });

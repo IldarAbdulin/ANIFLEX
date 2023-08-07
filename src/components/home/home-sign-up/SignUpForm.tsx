@@ -1,8 +1,10 @@
 import React from 'react';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import Cookies from 'js-cookie';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { setUser } from '../../../redux/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { googleProvider, auth } from '../../../firebase';
 
 export const SignUpForm: React.FC = () => {
   const [email, setEmail] = React.useState<string>('');
@@ -12,12 +14,9 @@ export const SignUpForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
-
   const handleRegister = () => {
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -25,9 +24,35 @@ export const SignUpForm: React.FC = () => {
             token: user.accessToken,
           })
         );
+        console.log(auth.currentUser?.email);
+
+        Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
+        Cookies.set('token', user.accessToken, { expires: 3 });
         navigate('/main');
       })
-      .catch(console.error);
+      .catch(() => {
+        alert('Ошибка при регистрации');
+      });
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider).then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.accessToken,
+          })
+        );
+        console.log(auth.currentUser?.email);
+        Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
+        Cookies.set('token', user.accessToken, { expires: 3 });
+        navigate('/main');
+      });
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -71,7 +96,7 @@ export const SignUpForm: React.FC = () => {
             />
           </svg>
           <div>
-            <span>Войти через Google</span>
+            <button onClick={signInWithGoogle}>Войти через Google</button>
           </div>
         </div>
         <button

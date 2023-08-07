@@ -35,6 +35,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &_p {
+        width: 220px;
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          letter-spacing: 1px;
+          color: #fff;
+        }
+      }
       &_btns {
         display: flex;
         gap: 20px;

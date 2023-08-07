@@ -5,12 +5,38 @@ import Logo from '../../../assets/home/logo.png';
 import { Button } from '../../../ui/home/Button';
 import { HomeLogin } from '../home-login/HomeLogin';
 import { HomeSignUp } from '../home-sign-up/HomeSignUp';
+import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { removeUser } from '../../../redux/slices/userSlice';
 
 AOS.init();
 
 const HomeMain: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [isLoginActive, setIsLoginActive] = React.useState<boolean>(false);
   const [isSignUpActive, setIsSignUpActive] = React.useState<boolean>(false);
+  const [isLogin, setIsLogin] = React.useState<boolean>(false);
+  const [userName, setUserName] = React.useState<string>('');
+
+  const logout = () => {
+    dispatch(removeUser());
+  };
+
+  const isAuthUser = () => {
+    if (!isLogin) {
+      alert('Вы должны быть авторизированы!');
+    }
+  };
+
+  React.useEffect(() => {
+    const username = Cookies.get('user');
+    const token = Cookies.get('token');
+    if (token) {
+      setIsLogin(true);
+      setUserName(`${username}`);
+    }
+  }, [dispatch, logout]);
   return (
     <>
       <div className="home-main">
@@ -25,12 +51,21 @@ const HomeMain: React.FC = () => {
                 <div className="home-main__content-header_logo">
                   <img src={Logo} alt="logo" />
                 </div>
-                <div className="home-main__content-header_btns">
-                  <button onClick={() => setIsLoginActive(true)}>Вход</button>
-                  <button onClick={() => setIsSignUpActive(true)}>
-                    Регисрация
-                  </button>
-                </div>
+                {isLogin ? (
+                  <>
+                    <div className="home-main__content-header_p">
+                      <p>{userName}</p>
+                      <Button onClick={logout} title="Выйти" />
+                    </div>
+                  </>
+                ) : (
+                  <div className="home-main__content-header_btns">
+                    <button onClick={() => setIsLoginActive(true)}>Вход</button>
+                    <button onClick={() => setIsSignUpActive(true)}>
+                      Регисрация
+                    </button>
+                  </div>
+                )}
               </div>
               <div
                 data-aos="fade-up"
@@ -46,11 +81,17 @@ const HomeMain: React.FC = () => {
                   неизведанные истории! Нажми на кнопку и отправляйся в
                   атмосферу удивительных приключений!
                 </p>
-                <Button
-                  className="home-main__content-text_content-btn"
-                  title="Перейти на страницу с аниме"
-                  showArrow={true}
-                />
+                <Link
+                  style={{ textDecoration: 'none' }}
+                  to={isLogin ? '/main' : ''}
+                >
+                  <Button
+                    onClick={isAuthUser}
+                    className="home-main__content-text_content-btn"
+                    title="Перейти на страницу с аниме"
+                    showArrow={true}
+                  />
+                </Link>
               </div>
               {isLoginActive && (
                 <HomeLogin

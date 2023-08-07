@@ -54,7 +54,7 @@
     }
     &__form {
       &-google {
-        width: 220px;
+        width: 260px;
         margin: 10px 0;
         display: flex;
         align-items: center;
@@ -63,6 +63,11 @@
         cursor: pointer;
         border: 1px solid #676767;
         padding: 3px 0px;
+        button {
+          width: 220px;
+          color: #353535;
+          font-size: 20px;
+        }
       }
       &-checkbox {
         margin: 10px 0 10px 2px;

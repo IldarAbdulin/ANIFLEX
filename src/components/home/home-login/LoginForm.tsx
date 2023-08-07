@@ -1,8 +1,10 @@
 import React from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import Cookies from 'js-cookie';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { setUser } from '../../../redux/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { googleProvider, auth } from '../../../firebase';
 
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = React.useState<string>('');
@@ -13,10 +15,8 @@ export const LoginForm: React.FC = () => {
     e.preventDefault();
   };
   const handleLogin = () => {
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -24,9 +24,32 @@ export const LoginForm: React.FC = () => {
             token: user.accessToken,
           })
         );
+        console.log(auth.currentUser?.email);
+
+        Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
+        Cookies.set('token', user.accessToken, { expires: 3 });
         navigate('/main');
       })
-      .catch(() => alert('Invalid user!'));
+      .catch(() => alert('Неверный логин или пароль :('));
+  };
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider).then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.accessToken,
+          })
+        );
+        console.log(auth.currentUser?.email);
+        Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
+        Cookies.set('token', user.accessToken, { expires: 3 });
+        navigate('/main');
+      });
+    } catch (error) {
+      alert(error);
+    }
   };
   return (
     <div>
@@ -88,7 +111,7 @@ export const LoginForm: React.FC = () => {
           />
         </svg>
         <div>
-          <span>Войти через Google</span>
+          <button onClick={signInWithGoogle}>Войти через Google</button>
         </div>
       </div>
     </div>
