@@ -20,7 +20,10 @@ const HomeMain: React.FC = () => {
   const [userName, setUserName] = React.useState<string>('');
 
   const logout = () => {
-    dispatch(removeUser());
+    if (confirm('Вы уверены что хотите выйти из аккаунта ?')) {
+      dispatch(removeUser());
+      setIsLogin(false);
+    }
   };
 
   const isAuthUser = () => {
@@ -55,7 +58,11 @@ const HomeMain: React.FC = () => {
                   <>
                     <div className="home-main__content-header_p">
                       <p>{userName}</p>
-                      <Button onClick={logout} title="Выйти" />
+                      <Button
+                        className="home-main__content-header_p-btn"
+                        onClick={logout}
+                        title="Выйти"
+                      />
                     </div>
                   </>
                 ) : (

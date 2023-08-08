@@ -1,3 +1,3 @@
 import HomeMain from './home/home-main/HomeMain';
-
-export { HomeMain };
+import { Layout } from './layout/Layout';
+export { HomeMain, Layout };
