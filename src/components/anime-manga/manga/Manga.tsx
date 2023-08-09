@@ -1,7 +1,8 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { Layout } from '../../components';
-import { useTheme } from '../../hooks/useTheme';
+import { Layout } from '../..';
+import { useTheme } from '../../../hooks/useTheme';
+import { MangaHeader } from './MangaHeader';
 
 export const Manga: React.FC = () => {
   const { isLight, setIsLight } = useTheme();
@@ -22,9 +23,11 @@ export const Manga: React.FC = () => {
   return (
     <Layout>
       <div className="manga">
-        <h1>Welocome</h1>
-        <p>{userName}</p>
-        <button onClick={changeTheme}>Сменить тему</button>
+        <MangaHeader
+          isLight={isLight}
+          changeTheme={changeTheme}
+          userName={userName}
+        />
       </div>
     </Layout>
   );

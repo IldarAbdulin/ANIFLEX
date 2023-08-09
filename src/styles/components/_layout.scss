@@ -1,0 +1,21 @@
+.layout {
+  background-color: #0e0a1a;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  color: #e0e0e0;
+  a {
+    color: #ff1515;
+  }
+}
+.layout.light {
+  background-color: #d0d0d0;
+  width: 100vw;
+  height: 100vh;
+  color: #232323;
+  a {
+    color: #232323;
+  }
+}

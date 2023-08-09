@@ -24,8 +24,6 @@ export const LoginForm: React.FC = () => {
             token: user.accessToken,
           })
         );
-        console.log(auth.currentUser?.email);
-
         Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
         Cookies.set('token', user.accessToken, { expires: 3 });
         navigate('/main');
@@ -42,8 +40,7 @@ export const LoginForm: React.FC = () => {
             token: user.accessToken,
           })
         );
-        console.log(auth.currentUser?.email);
-        Cookies.set('user', `${auth.currentUser?.email}`, { expires: 3 });
+        Cookies.set('user', `${auth.currentUser?.displayName}`, { expires: 3 });
         Cookies.set('token', user.accessToken, { expires: 3 });
         navigate('/main');
       });

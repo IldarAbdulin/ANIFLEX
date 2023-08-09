@@ -1,0 +1,79 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "type": "manga",
+      "genre": ["Экшен", "Военное ", "Драма", "Детектив", "Фэнтези"],
+      "image": "https://static.wikia.nocookie.net/shingekinokyojin/images/0/0e/Attack_on_Titan_Part_1-_Crimson_Bow_and_Arrow_-_Main_visual_poster.jpg/revision/latest?cb=20220605104931&path-prefix=ru",
+      "name": "Атака титанов"
+    },
+    {
+      "id": 2,
+      "type": "manga",
+      "genre": [
+        "Психологическая драма",
+        "Альтернативная история",
+        "Меха",
+        "Приключения"
+      ],
+      "image": "https://flxt.tmsimg.com/assets/p186544_i_v9_ab.jpg",
+      "name": "Код Гиас"
+    },
+    {
+      "id": 3,
+      "type": "manga",
+      "genre": ["Психологическая драма", "Меха", "Постапокалиптика"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/4a0827fc-b53b-4615-8aae-736eeb014c8b/600x900",
+      "name": "Евангелион"
+    },
+    {
+      "id": 4,
+      "type": "manga",
+      "genre": ["Демоны,", "Сверхъестественное", "Экшен", "Фэнтези"],
+      "image": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/f/fd/Top_bg_anime.jpg/revision/latest?cb=20201003035739&path-prefix=ru",
+      "name": "Магическая битва"
+    },
+    {
+      "id": 5,
+      "type": "manga",
+      "genre": ["Боевик,", "Мистика", "Фэнтези"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/a901c017-ce3c-42b0-b13c-5b1009a6bf6d/600x900",
+      "name": "Берсерк"
+    },
+    {
+      "id": 6,
+      "type": "manga",
+      "genre": ["Приключение,", "Экшен", "Фэнтези", "Научная фантастика"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/1818c0b0-ae0f-4558-8436-2d00d95f7a03/600x900",
+      "name": "Мастера меча онлайн"
+    },
+    {
+      "id": 7,
+      "type": "manga",
+      "genre": ["Приключение,", "Экшен", "Боевые искусства", "Фантастика"],
+      "image": "https://static.wikia.nocookie.net/bleachpedia/images/d/d3/Bleachmovie.jpg/revision/latest?cb=20120413121617&path-prefix=ru",
+      "name": "Блич"
+    },
+    {
+      "id": 8,
+      "type": "manga",
+      "genre": ["Экшен", "Ужасы", "Фантастика"],
+      "image": "https://images.prom.ua/4296132535_w700_h500_manga-bees-print.jpg",
+      "name": "Человек бензопила"
+    },
+    {
+      "id": 9,
+      "type": "manga",
+      "genre": ["Романтика"],
+      "image": "https://static.wikia.nocookie.net/horimiya/images/0/03/Horimiya_Key_Visual_2.png/revision/latest?cb=20210214114348&path-prefix=ru",
+      "name": "Хоримия"
+    },
+    {
+      "id": 10,
+      "type": "manga",
+      "genre": ["Боевые искусства", "Фэнтези"],
+      "image": "https://animego.org/upload/anime/images/5ca8e16ebd092601180598.jpg",
+      "name": "Клинок рассекающий демонов"
+    }
+  ]
+}
