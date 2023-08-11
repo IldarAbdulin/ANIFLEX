@@ -1,6 +1,7 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Box } from '@mui/material';
 import Logo from '../../../assets/home/logo.png';
 import { Button } from '../../../ui/home/Button';
 import { HomeLogin } from '../home-login/HomeLogin';
@@ -12,7 +13,7 @@ import { removeUser } from '../../../redux/slices/userSlice';
 
 AOS.init();
 
-const HomeMain: React.FC = () => {
+export const HomeMain: React.FC = () => {
   const dispatch = useAppDispatch();
   const [isLoginActive, setIsLoginActive] = React.useState<boolean>(false);
   const [isSignUpActive, setIsSignUpActive] = React.useState<boolean>(false);
@@ -42,39 +43,39 @@ const HomeMain: React.FC = () => {
   }, [dispatch, logout]);
   return (
     <>
-      <div className="home-main">
-        <div className="home-main__zerno">
-          <div className="home-main__shadow">
-            <div className="home-main__content">
-              <div
+      <Box className="home-main">
+        <Box className="home-main__zerno">
+          <Box className="home-main__shadow">
+            <Box className="home-main__content">
+              <Box
                 data-aos="fade-down"
                 data-aos-duration="500"
                 className="home-main__content-header"
               >
-                <div className="home-main__content-header_logo">
+                <Box className="home-main__content-header_logo">
                   <img src={Logo} alt="logo" />
-                </div>
+                </Box>
                 {isLogin ? (
                   <>
-                    <div className="home-main__content-header_p">
+                    <Box className="home-main__content-header_p">
                       <p>{userName}</p>
                       <Button
                         className="home-main__content-header_p-btn"
                         onClick={logout}
                         title="Выйти"
                       />
-                    </div>
+                    </Box>
                   </>
                 ) : (
-                  <div className="home-main__content-header_btns">
+                  <Box className="home-main__content-header_btns">
                     <button onClick={() => setIsLoginActive(true)}>Вход</button>
                     <button onClick={() => setIsSignUpActive(true)}>
                       Регисрация
                     </button>
-                  </div>
+                  </Box>
                 )}
-              </div>
-              <div
+              </Box>
+              <Box
                 data-aos="fade-up"
                 data-aos-duration="1000"
                 className="home-main__content-text_content"
@@ -99,7 +100,7 @@ const HomeMain: React.FC = () => {
                     showArrow={true}
                   />
                 </Link>
-              </div>
+              </Box>
               {isLoginActive && (
                 <HomeLogin
                   setActive={setIsLoginActive}
@@ -118,12 +119,10 @@ const HomeMain: React.FC = () => {
                   }}
                 />
               )}
-            </div>
-          </div>
-        </div>
-      </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 };
-
-export default HomeMain;

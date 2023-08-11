@@ -1,5 +1,4 @@
-import React from 'react';
-import { Form } from '../form/Form';
+import { Box } from '@mui/material';
 import { SignUpForm } from './SignUpForm';
 
 type TypesHomeSignUp = {
@@ -13,12 +12,12 @@ export const HomeSignUp = ({
 }: TypesHomeSignUp) => {
   const closeModal = () => setActive(false);
   return (
-    <div className="registration-modal" onClick={closeModal}>
-      <div
+    <Box className="registration-modal" onClick={closeModal}>
+      <Box
         className="registration-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="registration-content__close-svg" onClick={closeModal}>
+        <Box className="registration-content__close-svg" onClick={closeModal}>
           <svg
             width="15"
             height="15"
@@ -46,13 +45,13 @@ export const HomeSignUp = ({
               strokeLinecap="round"
             />
           </svg>
-        </div>
-        <div className="registration-content__typographys">
+        </Box>
+        <Box className="registration-content__typographys">
           <p onClick={onSignInFormActive}>Вход</p>
           <p>Регистрация</p>
-        </div>
+        </Box>
         <SignUpForm />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

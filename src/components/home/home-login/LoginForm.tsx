@@ -1,5 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import { Box } from '@mui/material';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { setUser } from '../../../redux/slices/userSlice';
@@ -49,7 +50,7 @@ export const LoginForm: React.FC = () => {
     }
   };
   return (
-    <div>
+    <Box>
       <form onSubmit={handleSubmit} className="sign-in-content__form">
         <input
           type="email"
@@ -63,7 +64,7 @@ export const LoginForm: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="sign-in-content__form-checkbox">
+        <Box className="sign-in-content__form-checkbox">
           <label className="sign-in-content__form-checkbox_content">
             <input type="checkbox" />
             <svg viewBox="0 0 80 80" height="20px" width="20px">
@@ -74,15 +75,15 @@ export const LoginForm: React.FC = () => {
               ></path>
             </svg>
           </label>
-          <div>
-            <span>Запомнить меня</span>
-          </div>
-        </div>
+          <Box>
+            <span style={{ color: '#878787' }}>Запомнить меня</span>
+          </Box>
+        </Box>
         <button onClick={handleLogin} className="sign-in-content__form-button">
           Вход
         </button>
       </form>
-      <div className="sign-in-content__form-google">
+      <Box className="sign-in-content__form-google">
         <svg
           width="30"
           height="30"
@@ -107,10 +108,10 @@ export const LoginForm: React.FC = () => {
             fill="#1976D2"
           />
         </svg>
-        <div>
+        <Box>
           <button onClick={signInWithGoogle}>Войти через Google</button>
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };

@@ -7,7 +7,9 @@ export const MainPage: React.FC = () => {
   return (
     <>
       {Cookies.get('token') && Cookies.get('user') ? (
-        <Manga />
+        <>
+          <Navigate to={`/main`} /> <Manga />
+        </>
       ) : (
         <Navigate to={`/`} />
       )}

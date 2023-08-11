@@ -1,3 +1,5 @@
+import { Box } from '@mui/material';
+
 type TypesButton = {
   className?: string;
   title: string;
@@ -14,7 +16,7 @@ export const Button = ({
   onClick,
 }: TypesButton) => {
   return (
-    <div className={className}>
+    <Box className={className}>
       <button onClick={onClick}>
         {showReverseArrow && (
           <svg
@@ -46,6 +48,6 @@ export const Button = ({
           </svg>
         )}
       </button>
-    </div>
+    </Box>
   );
 };
