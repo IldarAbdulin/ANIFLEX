@@ -1,27 +1,26 @@
 import React from 'react';
-import axios from 'axios';
 import { FormControl, Select, MenuItem, Box } from '@mui/material';
 import { useTheme } from '../../../hooks/useTheme';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppSelector } from '../../../hooks/useAppSelector';
+import { getTypes } from '../../../redux/slices/typesSlice';
+import { getGenres } from '../../../redux/slices/genresSlice';
+import { TMangaFilter } from '../../../types/types';
 
-interface IGenres {
-  id: number;
-  genre: string;
-}
-interface ITypes {
-  id: number;
-  type: string;
-}
-
-export const MangaFilter = () => {
+export const MangaFilter = ({
+  name,
+  setName,
+  setType,
+  setGenre,
+}: TMangaFilter) => {
   const { isLight } = useTheme();
-  const [genres, setGenres] = React.useState<IGenres[]>([]);
-  const [types, setTypes] = React.useState<ITypes[]>([]);
+  const { types } = useAppSelector(({ types }) => types);
+  const { genres, errorG } = useAppSelector(({ genres }) => genres);
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    axios
-      .get('http://localhost:3001/geners')
-      .then(({ data }) => setGenres(data));
-    axios.get('http://localhost:3001/types').then(({ data }) => setTypes(data));
+    dispatch(getTypes());
+    dispatch(getGenres());
   }, []);
   return (
     <Box className="manga__filter">
@@ -30,6 +29,7 @@ export const MangaFilter = () => {
           defaultValue={`Отфильтровать по жанру`}
           variant="outlined"
           sx={{ color: isLight ? '#232323' : '#d0d0d0' }}
+          onChange={(e) => setGenre(e.target.value)}
         >
           <MenuItem
             disabled
@@ -38,11 +38,15 @@ export const MangaFilter = () => {
           >
             Отфильтровать по жанру
           </MenuItem>
-          {genres.map((genre) => (
-            <MenuItem key={genre.id} value={genre.genre}>
-              {genre.genre}
-            </MenuItem>
-          ))}
+          {genres.length ? (
+            genres.map((genre) => (
+              <MenuItem key={genre.id} value={genre.genre}>
+                {genre.genre}
+              </MenuItem>
+            ))
+          ) : (
+            <MenuItem>{errorG}</MenuItem>
+          )}
         </Select>
       </FormControl>
       <Box className="manga__filter-input">
@@ -58,7 +62,12 @@ export const MangaFilter = () => {
             fill={isLight ? '#2323239b' : '#d0d0d07e'}
           />
         </svg>
-        <input type="text" placeholder="Введите название" />
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Введите название"
+        />
       </Box>
       <FormControl
         variant="outlined"
@@ -69,6 +78,7 @@ export const MangaFilter = () => {
           defaultValue={`Отфильтровать по типу`}
           variant="outlined"
           sx={{ color: isLight ? '#232323' : '#d0d0d0' }}
+          onChange={(e) => setType(e.target.value)}
         >
           <MenuItem
             disabled
@@ -77,11 +87,12 @@ export const MangaFilter = () => {
           >
             Отфильтровать по типу
           </MenuItem>
-          {types.map((type) => (
-            <MenuItem key={type.id} value={type.type}>
-              {type.type}
-            </MenuItem>
-          ))}
+          {types.length &&
+            types.map((type) => (
+              <MenuItem key={type.id} value={type.type}>
+                {type.type}
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
     </Box>

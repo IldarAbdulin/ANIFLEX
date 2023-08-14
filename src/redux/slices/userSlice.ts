@@ -6,6 +6,8 @@ type IInitialState = {
   email: null | string;
   token: null | string;
   id: null | string;
+  loading: boolean;
+  error: null | string | unknown;
 };
 
 const initialState: IInitialState = {
@@ -13,6 +15,8 @@ const initialState: IInitialState = {
   email: null,
   token: null,
   id: null,
+  loading: false,
+  error: null,
 };
 
 export const userSlice = createSlice({

@@ -1,15 +1,8 @@
 import { Box } from '@mui/material';
 import { SignUpForm } from './SignUpForm';
+import { THomeSignUp } from '../../../types/types';
 
-type TypesHomeSignUp = {
-  setActive: (active: boolean) => void;
-  onSignInFormActive: () => void;
-};
-
-export const HomeSignUp = ({
-  setActive,
-  onSignInFormActive,
-}: TypesHomeSignUp) => {
+export const HomeSignUp = ({ setActive, onSignInFormActive }: THomeSignUp) => {
   const closeModal = () => setActive(false);
   return (
     <Box className="registration-modal" onClick={closeModal}>

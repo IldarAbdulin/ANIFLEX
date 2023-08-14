@@ -1,12 +1,7 @@
 import { Box } from '@mui/material';
+import { IMangaHeader } from '../../../interfaces/interface';
 import Logo from '../../../assets/home/logo.png';
 import DarkLogo from '../../../assets/home/dark-logo.png';
-
-interface IMangaHeader {
-  isLight: boolean;
-  userName: string;
-  changeTheme: () => void;
-}
 
 export const MangaHeader = ({
   isLight,

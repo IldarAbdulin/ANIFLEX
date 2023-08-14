@@ -1,0 +1,5 @@
+import { Backdrop, CircularProgress } from '@mui/material';
+
+export const Loader = () => {
+  return <CircularProgress color="inherit" />;
+};

@@ -33,12 +33,22 @@
   &__all-manga {
     padding: 30px 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
     img {
       border-radius: 20px;
     }
+  }
+  &__all-loader {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__all-err {
+    height: 26.5vh;
+    color: red;
   }
   &__footer {
     width: 80%;

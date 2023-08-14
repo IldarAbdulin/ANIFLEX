@@ -1,17 +1,8 @@
-import React from 'react';
 import { links } from './links';
+import { TPublicRoutes } from '../types/types';
 import { HomePage, MainPage, NotFoundPage, Profile } from '../pages';
 
-type IChildren = {
-  path: string;
-  element: React.ReactElement;
-};
-
-type IPublicRoutes = {
-  children: IChildren[];
-};
-
-export const publicRoutes: IPublicRoutes[] = [
+export const publicRoutes: TPublicRoutes[] = [
   {
     children: [
       {

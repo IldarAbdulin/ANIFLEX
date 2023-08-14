@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface IContext {
-  isLight: boolean;
-  setIsLight?: (arg: boolean) => void;
-}
+import { IContext } from '../interfaces/interface';
 
 export const ThemeContext = React.createContext<IContext>({
   isLight: false,
