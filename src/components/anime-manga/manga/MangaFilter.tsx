@@ -12,6 +12,8 @@ export const MangaFilter = ({
   setName,
   setType,
   setGenre,
+  resetGenres,
+  resetTypes,
 }: TMangaFilter) => {
   const { isLight } = useTheme();
   const { types } = useAppSelector(({ types }) => types);
@@ -29,7 +31,11 @@ export const MangaFilter = ({
           defaultValue={`Отфильтровать по жанру`}
           variant="outlined"
           sx={{ color: isLight ? '#232323' : '#d0d0d0' }}
-          onChange={(e) => setGenre(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value === 'Сбросить') {
+              return undefined;
+            } else setGenre(e.target.value);
+          }}
         >
           <MenuItem
             disabled
@@ -37,6 +43,13 @@ export const MangaFilter = ({
             sx={{ color: '#232323' }}
           >
             Отфильтровать по жанру
+          </MenuItem>
+          <MenuItem
+            value="Сбросить"
+            sx={{ color: '#232323', fontWeight: 700 }}
+            onClick={resetGenres}
+          >
+            Сбросить
           </MenuItem>
           {genres.length ? (
             genres.map((genre) => (
@@ -78,7 +91,11 @@ export const MangaFilter = ({
           defaultValue={`Отфильтровать по типу`}
           variant="outlined"
           sx={{ color: isLight ? '#232323' : '#d0d0d0' }}
-          onChange={(e) => setType(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value === 'Сбросить') {
+              return undefined;
+            } else setType(e.target.value);
+          }}
         >
           <MenuItem
             disabled
@@ -86,6 +103,13 @@ export const MangaFilter = ({
             sx={{ color: '#232323' }}
           >
             Отфильтровать по типу
+          </MenuItem>
+          <MenuItem
+            value="Сбросить"
+            sx={{ color: '#232323', fontWeight: 700 }}
+            onClick={resetTypes}
+          >
+            Сбросить
           </MenuItem>
           {types.length &&
             types.map((type) => (

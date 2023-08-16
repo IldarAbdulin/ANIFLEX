@@ -22,13 +22,13 @@
     {
       "id": 3,
       "type": "Манга",
-      "genre": ["Психологическая драма", "Меха", "Постапокалиптика"],
+      "genre": ["Психологическое", "Меха", "Постапокалипсис"],
       "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/4a0827fc-b53b-4615-8aae-736eeb014c8b/600x900",
       "name": "Евангелион"
     },
     {
       "id": 4,
-      "type": "Манга",
+      "type": "Манхва",
       "genre": ["Демоны,", "Сверхъестественное", "Экшен", "Фэнтези"],
       "image": "https://upload.wikimedia.org/wikipedia/ru/d/d2/Jujutsu_Kaisen.jpg",
       "name": "Магическая битва"
@@ -36,27 +36,27 @@
     {
       "id": 5,
       "type": "Манга",
-      "genre": ["Боевик,", "Мистика", "Фэнтези"],
+      "genre": ["Боевик", "Мистика", "Фэнтези"],
       "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/a901c017-ce3c-42b0-b13c-5b1009a6bf6d/600x900",
       "name": "Берсерк"
     },
     {
       "id": 6,
       "type": "Манга",
-      "genre": ["Приключение,", "Экшен", "Фэнтези", "Научная фантастика"],
+      "genre": ["Приключения,", "Экшен", "Фэнтези", "Научная фантастика"],
       "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/1818c0b0-ae0f-4558-8436-2d00d95f7a03/600x900",
       "name": "Мастера меча онлайн"
     },
     {
       "id": 7,
-      "type": "Манга",
-      "genre": ["Приключение,", "Экшен", "Боевые искусства", "Фантастика"],
+      "type": "Манхва",
+      "genre": ["Приключения,", "Экшен", "Боевые искусства", "Фантастика"],
       "image": "https://avatars.dzeninfra.ru/get-zen_doc/8170504/pub_64242d2ac30476424838b0d4_64252e49e590f52c8750b171/scale_1200",
       "name": "Блич"
     },
     {
       "id": 8,
-      "type": "Манга",
+      "type": "Манхва",
       "genre": ["Экшен", "Ужасы", "Фантастика"],
       "image": "https://images.prom.ua/4296132535_w700_h500_manga-bees-print.jpg",
       "name": "Человек бензопила"
@@ -74,6 +74,90 @@
       "genre": ["Боевые искусства"],
       "image": "https://animego.org/upload/anime/images/5ca8e16ebd092601180598.jpg",
       "name": "Клинок рассекающий демонов"
+    },
+    {
+      "id": 11,
+      "type": "Манхва",
+      "genre": ["Ужасы", "Детектив", "Драма", "Психологическое"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/ad58dfdc-0007-4e0f-bee8-06f2466cb6e3/600x900",
+      "name": "Монстр"
+    },
+    {
+      "id": 12,
+      "type": "Манга",
+      "genre": ["Боевые искусства", "Приключения", "Фэнтези"],
+      "image": "https://static.hdrezka.ac/i/2016/8/6/sf940eb1016d2qa49k87t.jpg",
+      "name": "Хантер х хантер"
+    },
+    {
+      "id": 13,
+      "type": "Маньхуа",
+      "genre": ["Романтика", "Меха"],
+      "image": "https://i.pinimg.com/originals/14/84/91/1484911c8892b72fcef6d93f7671713d.jpg",
+      "name": "Любимый во франксе"
+    },
+    {
+      "id": 14,
+      "type": "Манга",
+      "genre": ["Сверхъестественное", "Фэнтези", "Комедия"],
+      "image": "https://upload.wikimedia.org/wikipedia/ru/5/51/Charlotte_anime.jpg",
+      "name": "Шарлотта"
+    },
+    {
+      "id": 15,
+      "type": "Манхва",
+      "genre": ["Психологическое"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/251c8683-2c04-4023-86e8-ca18fc161e1b/600x900",
+      "name": "Добро пожаловать в класс превосходства"
+    },
+    {
+      "id": 16,
+      "type": "Маньхуа",
+      "genre": ["Боевые искусства", "Боевик"],
+      "image": "https://cdn.kanobu.ru/anime/anime/c9584dfe-8d23-4e93-9993-40f8b7db0c72.jpg",
+      "name": "Самурай чамплу"
+    },
+    {
+      "id": 17,
+      "type": "Манга",
+      "genre": ["Боевые искусства", "Боевик"],
+      "image": "https://static.hdrezka.ac/i/2022/12/28/w2b153f65a126tn87u66a.png",
+      "name": "Токийские мстители"
+    },
+    {
+      "id": 18,
+      "type": "Маньхуа",
+      "genre": ["Мистика", "Повседневность"],
+      "image": "https://static.hdrezka.ac/i/2021/12/10/zca1ce6afd9dbbl41f85s.png",
+      "name": "Мастер муси"
+    },
+    {
+      "id": 19,
+      "type": "Маньхуа",
+      "genre": ["Драма", "Психологическое", "Фантастика"],
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/d84f69f7-fb3c-420a-ab6b-ac5420ca1e5b/600x900",
+      "name": "Врата Штейна"
+    },
+    {
+      "id": 20,
+      "type": "Маньхуа",
+      "genre": ["Комедия", "Приключения", "Фэнтези"],
+      "image": "https://animego.org/upload/anime/images/5f00372c7a6ed536216626.jpg",
+      "name": "Повседневная жизнь бессмертного короля"
+    },
+    {
+      "id": 21,
+      "type": "Маньхуа",
+      "genre": ["Боевые искусства", "Боевик"],
+      "image": "https://m.media-amazon.com/images/M/MV5BZjU4NmFhZTMtYzk0ZS00ZmE1LWFjYmUtYWIwY2MwZGNjNmRjXkEyXkFqcGdeQXVyMTQwOTkwMDUw._V1_.jpg",
+      "name": "Мастер темного пути"
+    },
+    {
+      "id": 22,
+      "type": "Маньхуа",
+      "genre": ["Фантастика"],
+      "image": "https://static.hdrezka.ac/i/2021/11/14/y419ad80e030ecg21k18l.png",
+      "name": "Ванпанчмен"
     }
   ],
   "geners": [
@@ -103,7 +187,7 @@
     },
     {
       "id": 7,
-      "genre": "Приключение"
+      "genre": "Приключения"
     },
     {
       "id": 8,
@@ -116,6 +200,26 @@
     {
       "id": 10,
       "genre": "Мистика"
+    },
+    {
+      "id": 11,
+      "genre": "Постапокалипсис"
+    },
+    {
+      "id": 12,
+      "genre": "Комедия"
+    },
+    {
+      "id": 13,
+      "genre": "Психологическое"
+    },
+    {
+      "id": 14,
+      "genre": "Меха"
+    },
+    {
+      "id": 15,
+      "genre": "Повседневность"
     }
   ],
   "types": [
@@ -129,7 +233,7 @@
     },
     {
       "id": 3,
-      "type": "Яой"
+      "type": "Маньхуа"
     }
   ]
 }

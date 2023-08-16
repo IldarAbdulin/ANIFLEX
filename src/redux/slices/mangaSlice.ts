@@ -6,16 +6,19 @@ interface IFilter {
   name: string;
   type: string;
   genre: string;
+  page: number;
 }
 
 export const getManga = createAsyncThunk<[], IFilter>(
   'getManga',
-  async ({ name, type, genre }, { rejectWithValue }) => {
+  async ({ name, type, genre, page }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API}/manga?_limit=8${
           name && `&name_like=${name}`
-        }${type && `&type=${type}`}${genre && `&genre=${genre}`}`
+        }${type !== '' ? `&type=${type}` : ``}${
+          genre !== '' ? `&q=${genre}` : ``
+        }${page && `&_page=${page}`}`
       );
       return data;
     } catch (err) {

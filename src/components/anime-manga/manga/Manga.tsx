@@ -1,6 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { getManga } from '../../../redux/slices/mangaSlice';
@@ -21,6 +21,7 @@ import DarkLogo from '../../../assets/home/dark-logo.png';
 import { Loader } from '../../../ui/Loader';
 
 export const Manga: React.FC = () => {
+  const location = useLocation();
   const { mangas, error, loading } = useAppSelector(({ manga }) => manga);
   const dispatch = useAppDispatch();
   const { isLight, setIsLight } = useTheme();
@@ -28,6 +29,9 @@ export const Manga: React.FC = () => {
   const [name, setName] = React.useState<string>('');
   const [type, setType] = React.useState<string>('');
   const [genre, setGenre] = React.useState<string>('');
+  const [page, setPage] = React.useState(
+    parseInt(`${location.search?.split('=')[1] || 1}`)
+  );
 
   const changeTheme = () => {
     setIsLight?.(!isLight);
@@ -42,14 +46,21 @@ export const Manga: React.FC = () => {
     },
   });
 
+  const resetGenres = () => {
+    setGenre('');
+  };
+  const resetTypes = () => {
+    setType('');
+  };
+
   React.useEffect(() => {
-    dispatch(getManga({ name, type, genre }));
+    dispatch(getManga({ name, type, genre, page }));
     const username = Cookies.get('user');
     const token = Cookies.get('token');
-    if (token) {
+    if (token && username) {
       setUserName(`${username}`);
     }
-  }, [name, type, genre]);
+  }, [name, type, genre, page]);
 
   return (
     <Layout>
@@ -66,6 +77,8 @@ export const Manga: React.FC = () => {
           setType={setType}
           genre={genre}
           setGenre={setGenre}
+          resetGenres={resetGenres}
+          resetTypes={resetTypes}
         />
         <Box>
           {error ? (
@@ -102,8 +115,12 @@ export const Manga: React.FC = () => {
                       >
                         <Pagination
                           color="success"
-                          count={5}
-                          renderItem={(item: Object) => (
+                          count={3}
+                          page={page}
+                          onChange={(_, num) => setPage(num)}
+                          showFirstButton
+                          showLastButton
+                          renderItem={(item: any) => (
                             <PaginationItem
                               sx={{
                                 color: '#A5A5A5',
@@ -111,7 +128,7 @@ export const Manga: React.FC = () => {
                                 fontWeight: '300',
                               }}
                               component={Link}
-                              to={`/main`}
+                              to={`/main?_page=${item.page}`}
                               {...item}
                             />
                           )}

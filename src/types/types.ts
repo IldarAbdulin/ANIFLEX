@@ -25,6 +25,8 @@ export type TMangaFilter = {
   setType: (e: string) => void;
   genre: string;
   setGenre: (e: string) => void;
+  resetGenres: () => void;
+  resetTypes: () => void;
 };
 
 export type TManga = {
