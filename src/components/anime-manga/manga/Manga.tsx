@@ -22,9 +22,9 @@ import { Loader } from '../../../ui/Loader';
 
 export const Manga: React.FC = () => {
   const location = useLocation();
+  const { isLight, setIsLight } = useTheme();
   const { mangas, error, loading } = useAppSelector(({ manga }) => manga);
   const dispatch = useAppDispatch();
-  const { isLight, setIsLight } = useTheme();
   const [userName, setUserName] = React.useState<string>('');
   const [name, setName] = React.useState<string>('');
   const [type, setType] = React.useState<string>('');
@@ -34,7 +34,18 @@ export const Manga: React.FC = () => {
   );
 
   const changeTheme = () => {
+    if (isLight === true) localStorage.setItem('Theme', 'Dark');
+    else if (isLight === false) localStorage.setItem('Theme', 'Light');
     setIsLight?.(!isLight);
+  };
+
+  const defaultTheme = () => {
+    const value = localStorage.getItem('Theme');
+    if (value === 'Dark') {
+      setIsLight?.(false);
+    } else if (value === 'Light') {
+      setIsLight?.(true);
+    }
   };
 
   const theme = createTheme({
@@ -60,6 +71,7 @@ export const Manga: React.FC = () => {
     if (token && username) {
       setUserName(`${username}`);
     }
+    defaultTheme();
   }, [name, type, genre, page]);
 
   return (
