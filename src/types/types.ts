@@ -31,6 +31,7 @@ export type TMangaFilter = {
 
 export type TManga = {
   mangas: IManga[];
+  manga: IManga;
   loading: boolean;
   error: null | string;
   name?: string;
@@ -44,4 +45,8 @@ export type TGenres = {
   genres: IGenres[];
   errorG: null | string;
   loading: boolean;
+};
+
+export type TMangaMenu = {
+  setActive: (act: boolean) => void;
 };

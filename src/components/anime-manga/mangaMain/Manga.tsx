@@ -66,6 +66,9 @@ export const Manga: React.FC = () => {
 
   React.useEffect(() => {
     dispatch(getManga({ name, type, genre, page }));
+    if (name !== '') {
+      setPage(1);
+    }
     const username = Cookies.get('user');
     const token = Cookies.get('token');
     if (token && username) {
@@ -111,12 +114,14 @@ export const Manga: React.FC = () => {
                 <>
                   <Box className="manga__all-manga">
                     {mangas.map((manga) => (
-                      <img
-                        width={280}
-                        height={350}
-                        key={manga.id}
-                        src={manga.image}
-                      />
+                      <Link to={`/main/${manga.id}`} key={manga.id}>
+                        <img
+                          style={{ cursor: 'pointer' }}
+                          width={280}
+                          height={350}
+                          src={manga.image}
+                        />
+                      </Link>
                     ))}
                   </Box>
                   <Box sx={{ display: 'flex', justifyContent: 'center' }}>

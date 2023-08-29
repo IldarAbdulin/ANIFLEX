@@ -3,11 +3,15 @@ export interface IContext {
   setIsLight?: (arg: boolean) => void;
 }
 export interface IManga {
-  id: number;
-  type: string;
-  genre: Array<string>;
-  image: string;
-  name: string;
+  id?: number;
+  type?: string;
+  genre?: Array<string>;
+  image?: string;
+  name?: string;
+  rating?: number;
+  age?: number;
+  status?: string;
+  description?: string;
 }
 export interface ITypes {
   id: undefined | number;
@@ -21,4 +25,13 @@ export interface IMangaHeader {
   isLight: boolean;
   userName: string;
   changeTheme: () => void;
+}
+export interface IGetManga {
+  name: string;
+  type: string;
+  genre: string;
+  page: number;
+}
+export interface ISingleManga {
+  id: string | undefined;
 }

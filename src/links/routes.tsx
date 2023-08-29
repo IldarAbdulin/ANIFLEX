@@ -1,6 +1,12 @@
 import { links } from './links';
 import { TPublicRoutes } from '../types/types';
-import { HomePage, MainPage, NotFoundPage, Profile } from '../pages';
+import {
+  HomePage,
+  MainPage,
+  MangaSinglePage,
+  NotFoundPage,
+  Profile,
+} from '../pages';
 
 export const publicRoutes: TPublicRoutes[] = [
   {
@@ -20,6 +26,10 @@ export const publicRoutes: TPublicRoutes[] = [
       {
         path: links.profile,
         element: <Profile />,
+      },
+      {
+        path: links.mainManga,
+        element: <MangaSinglePage />,
       },
     ],
   },
