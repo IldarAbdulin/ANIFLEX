@@ -19,6 +19,7 @@ import { MangaFilter } from './MangaFilter';
 import Logo from '../../../assets/home/logo.png';
 import DarkLogo from '../../../assets/home/dark-logo.png';
 import { Loader } from '../../../ui/Loader';
+import { MangaFooter } from './MangaFooter';
 
 export const Manga: React.FC = () => {
   const location = useLocation();
@@ -159,19 +160,7 @@ export const Manga: React.FC = () => {
           )}
         </Box>
       </Box>
-      <Box sx={{ padding: '10px 0', height: '25vh' }}>
-        <hr />
-        <Box className="manga__footer">
-          <Box>
-            <img src={isLight ? DarkLogo : Logo} alt="logo" />
-          </Box>
-          <Box>
-            <a href="">Связаться с нами</a>
-            <a href="">Соглашение</a>
-            <a href="">Конфиденциальность</a>
-          </Box>
-        </Box>
-      </Box>
+      <MangaFooter />
     </Layout>
   );
 };

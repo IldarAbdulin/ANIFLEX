@@ -1,11 +1,129 @@
 .manga-single {
+  h4 {
+    font-weight: 300;
+    margin-top: 30px;
+    font-size: 19px;
+  }
   width: 80%;
   margin: 0 auto;
   padding: 50px 0;
   .image {
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 360px;
     background-size: cover;
     border-radius: 45px;
+  }
+  &_frames {
+    margin-top: 20px;
+    p {
+      margin: 35px 0 10px 0;
+      font-size: 20px;
+    }
+    img {
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  &_watch-anime {
+    p {
+      margin: 35px 0 10px 0;
+      font-size: 22px;
+    }
+  }
+  &_p {
+    a {
+      position: relative;
+      font-size: 30px;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 1px;
+        width: 100%;
+      }
+    }
+    .manga-single_a-dark {
+      color: #d9d9d9;
+      &:hover {
+        color: #c6c6c6;
+      }
+      &::after {
+        background: #fff;
+      }
+    }
+    .manga-single_a-light {
+      color: #232323;
+      &::after {
+        background: #232323;
+      }
+    }
+    p {
+      font-weight: 300;
+      margin-top: 15px;
+      font-size: 17px;
+    }
+  }
+  &_other-links {
+    .manga-single_other-light {
+      color: #d9d9d9 !important;
+      background: #232323;
+      &:hover {
+        color: #c6c6c6;
+        background: #191919;
+      }
+    }
+    .manga-single_other-dark {
+      color: #232323;
+      background: #d9d9d9;
+      &:hover {
+        color: #161616;
+        background: rgb(190, 190, 190);
+      }
+    }
+    .manga-single_other-s-light {
+      color: #232323 !important;
+      &:hover {
+        color: rgb(19, 19, 19);
+      }
+      &::after {
+        background: #232323;
+      }
+    }
+    .manga-single_other-s-dark {
+      color: #d9d9d9;
+      transition: 0.3s;
+      &:hover {
+        color: #c8c8c8;
+      }
+      &::after {
+        background: #d9d9d9;
+      }
+    }
+    :nth-child(1) {
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    :nth-child(2) {
+      position: relative;
+      font-size: 22px;
+      font-weight: 400;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 1px;
+        width: 100%;
+      }
+    }
+  }
+  .MuiSelect-select {
+    padding: 8px !important;
   }
 }

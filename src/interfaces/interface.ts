@@ -12,6 +12,8 @@ export interface IManga {
   age?: number;
   status?: string;
   description?: string;
+  episodes?: number;
+  frames?: Array<string>;
 }
 export interface ITypes {
   id: undefined | number;
